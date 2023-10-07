@@ -6,17 +6,20 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { AppContext } from './context';
 import EMIMain from './pages/emi/emiMain';
 import Test from './test';
+import Header from './components/header';
 
 const Main = () => {
   return (
     <AppContext.Provider value={{}}>
       <CssBaseline />
+      <Header />
       <Container
         maxWidth={false}
         sx={{
-          width: '100vw',
-          pb: 2,
-          px: 2,
+          bgcolor: '#ECECEC',
+          height: '100vh',
+          overflow: 'scroll',
+          py: 2,
         }}
       >
         <Routes>

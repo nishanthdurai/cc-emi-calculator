@@ -3,7 +3,6 @@ import { Typography } from '@mui/material';
 
 const Test = () => {
   const theme = useTheme();
-  console.log(theme);
 
   return <Typography color='common.neutral'>Hello world</Typography>;
 };
