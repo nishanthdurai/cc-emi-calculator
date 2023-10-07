@@ -1,3 +1,3 @@
-# cc-emi-calculator
+# simply calculate
 
 credit card emi calculator with GST
