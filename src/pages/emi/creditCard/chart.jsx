@@ -62,6 +62,11 @@ function Chart() {
         }}
         animate
         data={data}
+        label={(props) => (
+          <Typography fontSize='12px' color='white'>
+            10
+          </Typography>
+        )}
       />
 
       {/* detailed info */}
@@ -73,11 +78,11 @@ function Chart() {
         flexDirection='column'
       >
         {/* total */}
-        <Typography variant='h6' fontWeight='900'>
+        <Typography variant='h6' fontWeight='700'>
           Total: {addCommasToNumber(emiInfo.totalPaid)}
         </Typography>
         {/* principal */}
-        <Typography variant='subtitle1' fontWeight='900'>
+        <Typography variant='subtitle1' fontWeight='600'>
           Extra:{' '}
           {addCommasToNumber(
             (

@@ -3,7 +3,7 @@ import { createTheme } from '@mui/material';
 
 export const theme = createTheme({
   typography: {
-    fontFamily: ['Poppins'].join(','),
+    fontFamily: `"Poppins", "Roboto", "Helvetica", "Arial", sans-serif`,
   },
   palette: {
     primary: {
