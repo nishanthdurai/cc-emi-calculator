@@ -10,10 +10,13 @@ import {
 } from '@mui/material';
 import React from 'react';
 import { useContext } from 'react';
+
+// project
 import { CCEMiContext } from '../../../context';
+import { addCommasToNumber } from '../../../utils/stringUtils';
 
 function RepaymentSchedule() {
-  const { repaymentSchedule } = useContext(CCEMiContext);
+  const { emiInfo, repaymentSchedule } = useContext(CCEMiContext);
 
   if (repaymentSchedule.length === 0) {
     return;
@@ -55,7 +58,7 @@ function RepaymentSchedule() {
                 schedule.emiWithGst,
               ].map((data, index) => (
                 <TableCell align='center' key={index}>
-                  {data}
+                  {addCommasToNumber(data)}
                 </TableCell>
               ))}
             </TableRow>

@@ -1,7 +1,7 @@
 {
   "name": "simply-calculate",
   "private": true,
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -14,6 +14,7 @@
     "@mui/material": "^5.14.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-minimal-pie-chart": "^8.4.0",
     "react-router-dom": "^6.15.0"
   },
   "devDependencies": {

@@ -1,5 +1,5 @@
 // library
-import { Box, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import React from 'react';
 // local
 import Input from './input';
@@ -7,24 +7,37 @@ import { CCEMiContext } from '../../../context';
 import { calculateEMI } from '../../../utils/emiUtils';
 import { useState } from 'react';
 import RepaymentSchedule from './repaymentSchedule';
+import Chart from './chart';
 
 const CCEmiMain = () => {
+  const [emiInfo, setEmiInfo] = useState();
   const [repaymentSchedule, setRepaymentSchedule] = useState([]);
 
   const onCalculateEMI = (loanAmount, roi, tenure) => {
-    setRepaymentSchedule(calculateEMI(loanAmount, roi, tenure, 18).schedule);
+    const calc = calculateEMI(loanAmount, roi, tenure, 18);
+    setRepaymentSchedule(calc.schedule);
+    setEmiInfo(calc.info);
   };
 
   return (
-    <CCEMiContext.Provider value={{ onCalculateEMI, repaymentSchedule }}>
+    <CCEMiContext.Provider
+      value={{ onCalculateEMI, repaymentSchedule, emiInfo }}
+    >
       <Box display='flex' gap={2} flexDirection='column'>
         {/* page heading */}
         <Typography variant='h6'>
           Master Your Finances with Our EMI Calculator App
         </Typography>
 
-        {/* input */}
-        <Input />
+        {/* input - graph */}
+        <Grid container>
+          <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
+            <Input />
+          </Grid>
+          <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
+            <Chart />
+          </Grid>
+        </Grid>
 
         {/* schedule */}
         <RepaymentSchedule />

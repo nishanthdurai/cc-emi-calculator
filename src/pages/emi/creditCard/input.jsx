@@ -82,7 +82,6 @@ function Input() {
       flexDirection='column'
       gap={2}
       p={2}
-      width='50%'
       bgcolor={theme.palette.primary.cardBg}
     >
       <TextField
