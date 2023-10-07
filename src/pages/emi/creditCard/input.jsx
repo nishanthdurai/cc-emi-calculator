@@ -83,6 +83,7 @@ function Input() {
       gap={2}
       p={2}
       bgcolor={theme.palette.primary.cardBg}
+      borderRadius={1}
     >
       <TextField
         label='Loan amount'

@@ -69,38 +69,6 @@ function Chart() {
         )}
       />
 
-      {/* detailed info */}
-      <Box
-        width='100%'
-        alignItems='center'
-        justifyContent='center'
-        display='flex'
-        flexDirection='column'
-      >
-        {/* total */}
-        <Typography variant='h6' fontWeight='700'>
-          Total: {addCommasToNumber(emiInfo.totalPaid)}
-        </Typography>
-        {/* principal */}
-        <Typography variant='subtitle1' fontWeight='600'>
-          Extra:{' '}
-          {addCommasToNumber(
-            (
-              parseFloat(emiInfo.totalPaid) - parseFloat(emiInfo.principal)
-            ).toFixed(2)
-          )}
-        </Typography>
-        {/* interest - Gst on interest */}
-        <Box display='flex' gap={2} justifyContent='center'>
-          <Typography variant='subtitle2' fontWeight='500'>
-            Interest: {addCommasToNumber(emiInfo.totalInterest)}
-          </Typography>
-          <Typography variant='subtitle2' fontWeight='500'>
-            GST on interest: {addCommasToNumber(emiInfo.totalGstOnInterest)}
-          </Typography>
-        </Box>
-      </Box>
-
       {/* labels */}
       <Grid container gap={2} display='flex' justifyContent='center'>
         {data.map((item, index) => (
@@ -109,6 +77,57 @@ function Chart() {
           </Grid>
         ))}
       </Grid>
+
+      {/* detailed info */}
+      <Box
+        width='100%'
+        alignItems='center'
+        justifyContent='center'
+        display='flex'
+        flexDirection='column'
+        gap={1}
+      >
+        {/* total */}
+        <Typography
+          variant='h6'
+          fontWeight='700'
+          bgcolor='lightcyan'
+          p={1}
+          borderRadius={1}
+        >
+          Total: {addCommasToNumber(parseInt(emiInfo.totalPaid))}
+        </Typography>
+        {/* principal */}
+        <Typography
+          variant='subtitle1'
+          fontWeight='600'
+          bgcolor='lightcyan'
+          p={1}
+          borderRadius={1}
+        >
+          Extra:{' '}
+          {addCommasToNumber(
+            parseInt(emiInfo.totalPaid) - parseInt(emiInfo.principal)
+          )}
+        </Typography>
+        {/* interest - Gst on interest */}
+        <Box
+          display='flex'
+          gap={2}
+          justifyContent='center'
+          bgcolor='lightcyan'
+          p={1}
+          borderRadius={1}
+        >
+          <Typography variant='subtitle2' fontWeight='500'>
+            Interest: {addCommasToNumber(parseInt(emiInfo.totalInterest))}
+          </Typography>
+          <Typography variant='subtitle2' fontWeight='500'>
+            GST on interest:{' '}
+            {addCommasToNumber(parseInt(emiInfo.totalGstOnInterest))}
+          </Typography>
+        </Box>
+      </Box>
     </Box>
   );
 }
