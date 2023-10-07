@@ -30,7 +30,7 @@ const CCEmiMain = () => {
         </Typography>
 
         {/* input - graph */}
-        <Grid container>
+        <Grid container boxShadow={1} p={2}>
           <Grid item xs={12} sm={6} md={6} lg={6} xl={6}>
             <Input />
           </Grid>

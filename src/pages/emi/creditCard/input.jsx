@@ -73,7 +73,7 @@ function Input() {
 
     setRoi(formattedRoi);
 
-    onCalculateEMI(loanAmount, formattedRoi, tenure);
+    onCalculateEMI(formattedLoanAmount, formattedRoi, formattedTenure);
   };
 
   return (
