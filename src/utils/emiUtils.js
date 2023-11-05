@@ -36,12 +36,12 @@ export const calculateEMI = (
 
     schedule.push({
       month,
-      emi: emi.toFixed(2),
-      emiWithGst: emiWithInterest.toFixed(2),
-      interestPayment: interestPayment.toFixed(2),
-      gstForInterest: interestGst.toFixed(2),
       principalPayment: principalPayment.toFixed(2),
       remainingPrincipal: remainingPrincipal.toFixed(2),
+      interestPayment: interestPayment.toFixed(2),
+      gstForInterest: interestGst.toFixed(2),
+      emi: emi.toFixed(2),
+      emiWithGst: emiWithInterest.toFixed(2),
     });
   }
 

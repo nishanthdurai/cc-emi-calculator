@@ -7,23 +7,56 @@ import {
   TableRow,
   TableContainer,
   Paper,
+  Box,
+  Button,
 } from '@mui/material';
 import React from 'react';
 import { useContext } from 'react';
+import { utils, write } from 'xlsx';
 
 // project
 import { CCEMiContext } from '../../../context';
 import { addCommasToNumber } from '../../../utils/stringUtils';
 
 function RepaymentSchedule() {
-  const { emiInfo, repaymentSchedule } = useContext(CCEMiContext);
+  const { repaymentSchedule } = useContext(CCEMiContext);
 
   if (repaymentSchedule.length === 0) {
     return;
   }
 
+  const onClickSave = () => {
+    const ws = utils.json_to_sheet(repaymentSchedule, {
+      cellStyles: true, // Enable cell styling
+      z: '$#,##0.00', // Format the "Amount" column as currency
+    });
+    const wb = utils.book_new();
+    utils.book_append_sheet(wb, ws, 'Sheet1');
+    const excelFile = write(wb, {
+      bookType: 'xlsx',
+      type: 'array',
+    });
+
+    // Convert the array buffer to a Blob
+    const blob = new Blob([excelFile], {
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    });
+
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'emi-schedule.xlsx';
+    a.click();
+  };
+
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} sx={{ p: 1 }}>
+      {/* save file */}
+      <Box display='flex' flexDirection='row' justifyContent='right'>
+        <Button variant='contained' color='success' onClick={onClickSave}>
+          Save
+        </Button>
+      </Box>
       <Table>
         <TableHead>
           <TableRow>
